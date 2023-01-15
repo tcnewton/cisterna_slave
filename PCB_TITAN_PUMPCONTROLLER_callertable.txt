@@ -1,0 +1,25 @@
+main
+	__CC2DW
+		____DoICP
+	Init_cfgMCU
+	UART1_Init
+	Timers_Init
+	REEnviarDados
+		uart_rx_disable
+			MBTransmit_On_RS485
+		UART1_Write
+		uart_rx_enable
+			MBReceive_On_RS485
+	Delay1
+		sendports
+			SendStateProtocol
+				uart_rx_disable
+					MBTransmit_On_RS485
+				UART1_Write_Text
+					UART1_Write
+				uart_rx_enable
+					MBReceive_On_RS485
+	Delay2
+UART_RCV
+	UART1_Read
+	DecodificaProtocolo

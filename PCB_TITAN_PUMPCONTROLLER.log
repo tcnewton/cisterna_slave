@@ -1,0 +1,13 @@
+0	1	mikroCPIC1618.exe -MSF -DBG -pP16F883 -DL -O11111114 -fo8 -N"C:\Users\Talles\Documents\Talles\01_W3E\07-PROJETOS_IOT\ALTAVIS\BOMBAS\PCB_GPIOS - P16F - SLAVE\PCB_TITAN_PUMPCONTROLLER.mcppi" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for PIC\Defs\" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for PIC\Uses\P16\" -SP"C:\Users\Talles\Documents\Talles\01_W3E\07-PROJETOS_IOT\ALTAVIS\BOMBAS\PCB_GPIOS - P16F - SLAVE\" -IP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for PIC\Uses\P16\" "PCB_TITAN_PUMPCONTROLLER.c" "__Lib_Math.mcl" "__Lib_MathDouble.mcl" "__Lib_System.mcl" "__Lib_Delays.mcl" "__Lib_CString.mcl" "__Lib_Conversions.mcl" "__Lib_UART_c67.mcl"	 
+hint: 0	1139	Available RAM: 240 [bytes], Available ROM: 4096 [bytes]	 
+diagnostics: 0	122	Compilation Started	PCB_TITAN_PUMPCONTROLLER.c
+hint: 0	1004	interrupt handler (UART_RCV at 0x0004)	PCB_TITAN_PUMPCONTROLLER.c
+warning: 87	1509	Generated baud rate is 9615 bps (error = 0.16 percent)	PCB_TITAN_PUMPCONTROLLER.c
+diagnostics: 269	123	Compiled Successfully	PCB_TITAN_PUMPCONTROLLER.c
+diagnostics: 0	127	All files Compiled in 78 ms	 
+hint: 0	1144	Used RAM (bytes): 100 (42%)  Free RAM (bytes): 140 (58%)	Used RAM (bytes): 100 (42%)  Free RAM (bytes): 140 (58%)
+hint: 0	1144	Used ROM (program words): 761 (19%)  Free ROM (program words): 3335 (81%)	Used ROM (program words): 761 (19%)  Free ROM (program words): 3335 (81%)
+diagnostics: 0	125	Project Linked Successfully	PCB_TITAN_PUMPCONTROLLER.mcppi
+diagnostics: 0	128	Linked in 0 ms	 
+diagnostics: 0	129	Project 'PCB_TITAN_PUMPCONTROLLER.mcppi' completed: 94 ms	 
+diagnostics: 0	103	Finished successfully: 22 dez 2022, 10:38:01	PCB_TITAN_PUMPCONTROLLER.mcppi
