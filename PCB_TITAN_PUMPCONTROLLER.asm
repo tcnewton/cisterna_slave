@@ -140,15 +140,13 @@ L_main10:
 	DECFSZ     R11+0, 1
 	GOTO       L_main10
 	NOP
-;PCB_TITAN_PUMPCONTROLLER.c,89 :: 		Timers_Init();
+;PCB_TITAN_PUMPCONTROLLER.c,90 :: 		Timers_Init(); //Configura interrupt global (INTCON)
 	CALL       _Timers_Init+0
-;PCB_TITAN_PUMPCONTROLLER.c,91 :: 		Timers_Init(); //Configura interrupt global (INTCON)
-	CALL       _Timers_Init+0
-;PCB_TITAN_PUMPCONTROLLER.c,93 :: 		PIR1.RCIF = 0;
+;PCB_TITAN_PUMPCONTROLLER.c,92 :: 		PIR1.RCIF = 0;
 	BCF        PIR1+0, 5
-;PCB_TITAN_PUMPCONTROLLER.c,94 :: 		PIE1.RCIE = 1;
+;PCB_TITAN_PUMPCONTROLLER.c,93 :: 		PIE1.RCIE = 1;
 	BSF        PIE1+0, 5
-;PCB_TITAN_PUMPCONTROLLER.c,95 :: 		tempoLed = start_timer(50);
+;PCB_TITAN_PUMPCONTROLLER.c,94 :: 		tempoLed = start_timer(50);
 	MOVLW      50
 	MOVWF      _tempoLed+0
 	CLRF       _tempoLed+1
@@ -168,7 +166,7 @@ L_main10:
 	BTFSC      STATUS+0, 0
 	INCFSZ     _ticks+3, 0
 	ADDWF      _tempoLed+3, 1
-;PCB_TITAN_PUMPCONTROLLER.c,96 :: 		tempoSmsg = start_timer(500);
+;PCB_TITAN_PUMPCONTROLLER.c,95 :: 		tempoSmsg = start_timer(500);
 	MOVLW      244
 	MOVWF      _tempoSmsg+0
 	MOVLW      1
@@ -189,14 +187,14 @@ L_main10:
 	BTFSC      STATUS+0, 0
 	INCFSZ     _ticks+3, 0
 	ADDWF      _tempoSmsg+3, 1
-;PCB_TITAN_PUMPCONTROLLER.c,98 :: 		while(TRUE)
+;PCB_TITAN_PUMPCONTROLLER.c,97 :: 		while(TRUE)
 L_main11:
-;PCB_TITAN_PUMPCONTROLLER.c,100 :: 		if(FlagAutoReuso==1)
+;PCB_TITAN_PUMPCONTROLLER.c,99 :: 		if(FlagAutoReuso==1) //modo automatico
 	MOVF       _FlagAutoReuso+0, 0
 	XORLW      1
 	BTFSS      STATUS+0, 2
 	GOTO       L_main13
-;PCB_TITAN_PUMPCONTROLLER.c,102 :: 		if((CIST1==0 || CIST2==0) && CIST_PRINC==0)ACIONA_V2V=0;
+;PCB_TITAN_PUMPCONTROLLER.c,101 :: 		if((CIST1==0 || CIST2==0) && CIST_PRINC==0)ACIONA_V2V=0;  //aciona v2v (low signal)
 	BTFSS      PORTB+0, 0
 	GOTO       L__main57
 	BTFSS      PORTB+0, 1
@@ -209,13 +207,13 @@ L__main56:
 	BCF        PORTB+0, 6
 	GOTO       L_main19
 L_main18:
-;PCB_TITAN_PUMPCONTROLLER.c,104 :: 		ACIONA_V2V=1;
+;PCB_TITAN_PUMPCONTROLLER.c,103 :: 		ACIONA_V2V=1;
 	BSF        PORTB+0, 6
 L_main19:
-;PCB_TITAN_PUMPCONTROLLER.c,105 :: 		}
+;PCB_TITAN_PUMPCONTROLLER.c,104 :: 		}
 	GOTO       L_main20
 L_main13:
-;PCB_TITAN_PUMPCONTROLLER.c,107 :: 		if(CIST_PRINC==0&&FlagLigaV2V==1)
+;PCB_TITAN_PUMPCONTROLLER.c,106 :: 		if(CIST_PRINC==0&&FlagLigaV2V==1)
 	BTFSS      PORTB+0, 2
 	GOTO       L_main23
 	MOVF       _FlagLigaV2V+0, 0
@@ -223,15 +221,13 @@ L_main13:
 	BTFSS      STATUS+0, 2
 	GOTO       L_main23
 L__main55:
-;PCB_TITAN_PUMPCONTROLLER.c,108 :: 		{ACIONA_V2V=0;//liga V2V
+;PCB_TITAN_PUMPCONTROLLER.c,107 :: 		{ACIONA_V2V=0;//liga V2V
 	BCF        PORTB+0, 6
-;PCB_TITAN_PUMPCONTROLLER.c,110 :: 		}
+;PCB_TITAN_PUMPCONTROLLER.c,109 :: 		}
 	GOTO       L_main24
 L_main23:
-;PCB_TITAN_PUMPCONTROLLER.c,113 :: 		ACIONA_V2V=1;
+;PCB_TITAN_PUMPCONTROLLER.c,112 :: 		ACIONA_V2V=1;
 	BSF        PORTB+0, 6
-;PCB_TITAN_PUMPCONTROLLER.c,114 :: 		FlagLigaV2V=0;
-	CLRF       _FlagLigaV2V+0
 ;PCB_TITAN_PUMPCONTROLLER.c,115 :: 		}
 L_main24:
 L_main20:

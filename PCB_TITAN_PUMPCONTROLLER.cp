@@ -68,7 +68,6 @@ void main() {
  Init_cfgMCU();
  UART1_Init(9600);
  Delay_ms(100);
- Timers_Init();
 
  Timers_Init();
 
@@ -93,7 +92,8 @@ void main() {
  else
  {
   (PORTB.RB6) =1;
- FlagLigaV2V=0;
+
+
  }
 
  if(FlagReenvmsg1==1)

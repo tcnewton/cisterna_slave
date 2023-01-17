@@ -86,7 +86,6 @@ void main() {
   Init_cfgMCU();
   UART1_Init(9600);
   Delay_ms(100);
-  Timers_Init();
    //Configuração interrupção timer0
    Timers_Init(); //Configura interrupt global (INTCON)
    //Configuração da interrupção Serial
@@ -97,13 +96,13 @@ void main() {
 
   while(TRUE)
     {
-      if(FlagAutoReuso==1)
+      if(FlagAutoReuso==1) //modo automatico
       {
-        if((CIST1==0 || CIST2==0) && CIST_PRINC==0)ACIONA_V2V=0;
+        if((CIST1==0 || CIST2==0) && CIST_PRINC==0)ACIONA_V2V=0;  //aciona v2v (low signal)
         else
         ACIONA_V2V=1;
        }
-      else
+      else  //modo manual
         if(CIST_PRINC==0&&FlagLigaV2V==1)
         {ACIONA_V2V=0;//liga V2V
          //send command desl flagLigaV2V
@@ -111,7 +110,8 @@ void main() {
         else
         {
          ACIONA_V2V=1;
-         FlagLigaV2V=0;
+         //flag retain on
+         /*FlagLigaV2V=0;*/
          }
 
       if(FlagReenvmsg1==1)
